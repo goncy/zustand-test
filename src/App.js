@@ -1,23 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+
+import logo from "./logo.svg";
+import {usePokemon, useShuffle} from "./pokemon/hooks";
+import "./App.css";
 
 function App() {
+  const pokemon = usePokemon();
+  const shuffle = useShuffle();
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <img alt="logo" className="App-logo" src={logo} />
+        <p>{pokemon.name}</p>
+        <button onClick={shuffle}>Shuffle</button>
       </header>
     </div>
   );
